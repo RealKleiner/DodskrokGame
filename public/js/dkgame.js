@@ -312,7 +312,7 @@ app.controller('DkCtrl', function($scope, $http, $interval, $timeout, ngAudio, $
             'name': "General"
         });
         $scope.players.push({
-            'name': "Öl & Bar"
+            'name': "BarWerk"
         });
         $scope.players.push({
             'name': "Fadderansvarig"
@@ -321,13 +321,7 @@ app.controller('DkCtrl', function($scope, $http, $interval, $timeout, ngAudio, $
             'name': "Spons"
         });
         $scope.players.push({
-            'name': "Biljett"
-        });
-        $scope.players.push({
-            'name': "Ljus & Ljus"
-        });
-        $scope.players.push({
-            'name': "Gückel"
+            'name': "Karaktär"
         });
         $scope.players.push({
             'name': "Kassör"
@@ -336,19 +330,16 @@ app.controller('DkCtrl', function($scope, $http, $interval, $timeout, ngAudio, $
             'name': "Tryck"
         });
         $scope.players.push({
-            'name': "Werk"
+            'name': "BokningsWerk"
         });
         $scope.players.push({
-            'name': "Bokning"
+            'name': "Nollegrupp & Fadderkul"
         });
         $scope.players.push({
-            'name': "Nollegrupp"
+            'name': "Mat & Sittning"
         });
         $scope.players.push({
-            'name': "Mat"
-        });
-        $scope.players.push({
-            'name': "Webb"
+            'name': "Webb & Info"
         });
     }
 
