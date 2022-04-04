@@ -8,7 +8,7 @@ const STYRET = ["Ordförande", "Kassör", "Vice Ordförande", "Sekreterare", "Ut
 app.controller('MenuCtrl', function($scope, $rootScope, $http) {
     $scope.model = {};
     $scope.loadedProfiles = [];
-	$scope.defaultProfiles = ["STABEN", "D-Group", "Donna", "Styret"];
+	$scope.defaultProfiles = ['STABEN', 'D-Group', 'Donna', 'Styret', 'Snabbt äventyr'];
     $scope.isLoading = false;
     $scope.$watch('model.search', function(query) {
         if (query) {
@@ -329,15 +329,15 @@ app.controller('DkCtrl', function($scope, $http, $interval, $timeout, ngAudio, $
         $scope.round = 0;
         $scope.sound.stop();
 
-        if (data == 'staben') {
+        if (data == 'STABEN') {
 			populate(STABEN);
-        } else if (data == 'dgroup') {
+        } else if (data == 'D-Group') {
 			populate(DGROUP);
-        } else if (data == 'donna') {
+        } else if (data == 'Donna') {
 			populate(DONNA);
-        } else if (data == 'styret') {
+        } else if (data == 'Styret') {
 			populate(STYRET);
-        } else if (data == 'mahaad') {
+        } else if (data == 'Snabbt äventyr') {
 			populateMahaad();
 		}
     });
