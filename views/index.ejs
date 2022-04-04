@@ -37,6 +37,9 @@
                 <li class="active">
 					<a ng-click="profile('styret')">Styret</a>
                 </li>
+                <li class="active">
+					<a ng-click="profile('mahaad')">Snabbt äventyr</a>
+                </li>
                 <input type="search" ng-model="model.search" name="Search" placeholder="Sök efter profil..." />
                 <li ng-repeat="profile in loadedProfiles">
                     <a ng-click="loadProfile(profile)">{{ profile.name }}</a>

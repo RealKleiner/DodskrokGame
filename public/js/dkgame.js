@@ -321,6 +321,10 @@ app.controller('DkCtrl', function($scope, $http, $interval, $timeout, ngAudio, $
     });
 
     $scope.$on('profile', function(event, data) {
+        $scope.playing = false;
+        $scope.round = 0;
+        $scope.sound.stop();
+
         if (data == 'staben') {
             populateSTABEN();
         } else if (data == 'dgroup') {
@@ -329,8 +333,47 @@ app.controller('DkCtrl', function($scope, $http, $interval, $timeout, ngAudio, $
             populateDonna();
         } else if (data == 'styret') {
             populateStyret();
-        }
+        } else if (data == 'mahaad') {
+			populateMahaad();
+		}
     });
+
+    function populateMahaad() {
+        $scope.players = [];
+		$scope.lists = [];
+		$scope.startMin = 2;
+		$scope.startMax = 5;
+
+        $scope.players.push({
+            'name': "Värden"
+        });
+        $scope.players.push({
+            'name': "Orson"
+        });
+        $scope.players.push({
+            'name': "Servitören"
+        });
+        $scope.players.push({
+            'name': "Regissören"
+        });
+
+        $scope.lists.push({
+            'title': "Svep 1 enhet",
+            index: -1
+        });
+        $scope.lists.push({
+            'title': "Ge bort 1 enhet",
+            index: -1
+        });
+        $scope.lists.push({
+            'title': "MAHAAD!",
+            index: -1
+        });
+        $scope.lists.push({
+            'title': "Mer hud!",
+            index: -1
+        });
+	}
 
     function populateSTABEN() {
         $scope.players = [];
@@ -479,10 +522,6 @@ app.controller('DkCtrl', function($scope, $http, $interval, $timeout, ngAudio, $
         });
         $scope.lists.push({
             'title': "Svep en enhet",
-            index: -1
-        });
-        $scope.lists.push({
-            'title': "Mer hud!",
             index: -1
         });
     }
