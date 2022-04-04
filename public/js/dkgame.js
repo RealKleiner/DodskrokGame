@@ -324,6 +324,7 @@ app.controller('DkCtrl', function($scope, $http, $interval, $timeout, ngAudio, $
         $scope.playing = false;
         $scope.round = 0;
         $scope.sound.stop();
+		populateLists();
 
         if (data == 'staben') {
             populateSTABEN();
