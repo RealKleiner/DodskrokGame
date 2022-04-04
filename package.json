@@ -1,17 +1,17 @@
 {
-  "name": "Dodskrok.se",
+  "name": "Dodskrok",
   "version": "3.1.0",
-  "description": "Dödskrök.se officela webbspel",
+  "description": "Dödskrök officela webbspel",
   "keywords": [],
-  "repository": "https://github.com/AnteWall/DodskrokGame.git",
-  "homepage": "http://dödskrök.se/",
-  "author": "Ante Wall <ante.wall@gmail.com>",
+  "repository": "https://github.com/RealKleiner/DodskrokGame.git",
+  "homepage": "http://göra.mahaad.nu/",
+  "author": "Dag Jönsson <dag@jnsson.eu>",
   "dependencies": {
-    "body-parser": "^1.14.2",
+    "body-parser": "^1.20.0",
     "consolidate": "^0.13.1",
-    "ejs": "^2.3.4",
-    "express": "^4.13.3",
-    "mongoose": "^4.3.6"
+    "ejs": "^2.7.4",
+    "express": "^4.17.3",
+    "mongoose": "^4.13.21"
   },
   "main": "server",
   "scripts": {
