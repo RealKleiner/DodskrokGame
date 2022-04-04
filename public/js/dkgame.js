@@ -3,6 +3,7 @@ var app = angular.module('dk', ['ngAudio']);
 app.controller('MenuCtrl', function($scope, $rootScope, $http) {
     $scope.model = {};
     $scope.loadedProfiles = [];
+	$scope.defaultProfiles = ["STABEN", "D-Group", "Donna", "Styret"];
     $scope.isLoading = false;
     $scope.$watch('model.search', function(query) {
         if (query) {
@@ -30,32 +31,55 @@ app.controller('MenuCtrl', function($scope, $rootScope, $http) {
 
 app.controller('ChangelogCtrl', function($scope, $rootScope) {
 
-    $scope.changelogs = [{
+    $scope.changelogs = [
+	{
+        "version": "3.1.1",
+        "changes": [
+			{
+                "description": "Uppdaterat startprofilen (STABEN)"
+            }, 
+			{
+                "description": "Lagt till några fler standardprofiler"
+            },
+
+        ]
+    }, 
+	{
         "version": "3.1.0",
-        "changes": [{
+        "changes": [
+			{
                 "description": "Kan nu spara profiler"
-            }, {
+            },
+			{
                 "description": "Fixat problem med divar och annat"
             },
 
         ]
-    }, {
+    }, 
+	{
         "version": "3.0.2",
-        "changes": [{
+        "changes": [
+			{
                 "description": "La till flames i bakgrunden, kan gömmas i inställningar."
             },
 
         ]
-    }, {
+    }, 
+	{
         "version": "3.0.1",
-        "changes": [{
+        "changes": [
+		{
             "description": "La till profiler (maila ante@dödskrök.se för att få er tillagd)"
-        }, {
+        }, 
+		{
             "description": "La till Changelog"
-        }, {
+        }, 
+		{
             "description": "La till versionnummer på spelet"
-        }, ]
-    }, {
+        }, 
+		]
+	}, 
+	{
         "version": "3.0.0",
         "changes": [{
             "description": "Ny design"
@@ -301,8 +325,10 @@ app.controller('DkCtrl', function($scope, $http, $interval, $timeout, ngAudio, $
             populateSTABEN();
         } else if (data == 'dgroup') {
             populateDGROUP();
-        } else if (data == 'cc') {
-            populateCC();
+        } else if (data == 'donna') {
+            populateDonna();
+        } else if (data == 'styret') {
+            populateStyret();
         }
     });
 
@@ -343,6 +369,105 @@ app.controller('DkCtrl', function($scope, $http, $interval, $timeout, ngAudio, $
         });
     }
 
+    function populateDGROUP() {
+        $scope.players = [];
+        $scope.players.push({
+            'name': "Chief"
+        });
+        $scope.players.push({
+            'name': "Ca$h"
+        });
+        $scope.players.push({
+            'name': "Öl & Bar"
+        });
+        $scope.players.push({
+            'name': "Webb & ÖD"
+        });
+        $scope.players.push({
+            'name': "Werk"
+        });
+        $scope.players.push({
+            'name': "Biljett & U-Lag"
+        });
+        $scope.players.push({
+            'name': "Pr & Event"
+        });
+        $scope.players.push({
+            'name': "Spons"
+        });
+        $scope.players.push({
+            'name': "J^8"
+        });
+        $scope.players.push({
+            'name': "Trykk"
+        });
+        $scope.players.push({
+            'name': "Mat & Sittning"
+        });
+        $scope.players.push({
+            'name': "Pr & Personal"
+        });
+    }
+
+    function populateDonna() {
+        $scope.players = [];
+        $scope.players.push({
+            'name': "PrimaDonna"
+        });
+        $scope.players.push({
+            'name': "Kassör"
+        });
+        $scope.players.push({
+            'name': "Spons"
+        });
+        $scope.players.push({
+            'name': "PR & Info"
+        });
+        $scope.players.push({
+            'name': "Mat & Sittning"
+        });
+        $scope.players.push({
+            'name': "Gückel & Aktivitet"
+        });
+        $scope.players.push({
+            'name': "Dekor & Intendent"
+        });
+        $scope.players.push({
+            'name': "Bokning & Event"
+        });
+        $scope.players.push({
+            'name': "Webb & Tryck"
+        });
+    }
+
+    function populateStyret() {
+        $scope.players = [];
+        $scope.players.push({
+            'name': "Ordförande"
+        });
+        $scope.players.push({
+            'name': "Kassör"
+        });
+        $scope.players.push({
+            'name': "Vice Ordförande"
+        });
+        $scope.players.push({
+            'name': "Sekreterare"
+        });
+        $scope.players.push({
+            'name': "UtbO"
+        });
+        $scope.players.push({
+            'name': "Aktivitetshanterare"
+        });
+        $scope.players.push({
+            'name': "AMO"
+        });
+        $scope.players.push({
+            'name': "Ledamot"
+        });
+    }
+
     function populateLists() {
         $scope.lists.push({
             'title': "Ta 5 klunkar",
@@ -353,7 +478,11 @@ app.controller('DkCtrl', function($scope, $http, $interval, $timeout, ngAudio, $
             index: -1
         });
         $scope.lists.push({
-            'title': "Svep en öl",
+            'title': "Svep en enhet",
+            index: -1
+        });
+        $scope.lists.push({
+            'title': "Mer hud!",
             index: -1
         });
     }

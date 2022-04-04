@@ -26,7 +26,16 @@
 
             <ul>
                 <li class="active">
-                    <a href="/">Spelet</a>
+					<a ng-click="profile('staben')">STABEN</a>
+                </li>
+                <li class="active">
+					<a ng-click="profile('dgroup')">D-Group</a>
+                </li>
+                <li class="active">
+					<a ng-click="profile('donna')">Donna</a>
+                </li>
+                <li class="active">
+					<a ng-click="profile('styret')">Styret</a>
                 </li>
                 <input type="search" ng-model="model.search" name="Search" placeholder="Sök efter profil..." />
                 <li ng-repeat="profile in loadedProfiles">
@@ -41,8 +50,8 @@
             <p class="small">Android applikation av <a href="https://jacob-andersson.com/" target="_blank" >Jacob Andersson</a></p>
         </div>
         <p class="mail">Frågor eller annat?
-		<br>Maila <a href="mailto:orson@mahaad.nu?subject=[dödskrök]">orson@mahaad.nu</p>
-        <p class="version">Version 3.1.0 - <a href="changelog">Changelog</a></p>
+		<br>Maila <a href="mailto:orson@mahaad.nu?subject=[dödskrök]">orson@mahaad.nu</p></a>
+        <p class="version">Version 3.1.1 - <a href="changelog">Changelog</a></p>
     </div>
     <div class="container" ng-controller="DkCtrl">
         <div class="top-bar">
