@@ -366,7 +366,10 @@ app.controller('DkCtrl', function($scope, $http, $interval, $timeout, ngAudio, $
             'name': "Orson"
         });
         $scope.players.push({
-            'name': "Servitören"
+            'name': "Garçon"
+        });
+        $scope.players.push({
+            'name': "Sommelière"
         });
         $scope.players.push({
             'name': "Regissören"
