@@ -1,5 +1,10 @@
 var app = angular.module('dk', ['ngAudio']);
 
+const STABEN = ["General", "BarWerk", "Fadderansvarig", "Spons", "Karaktär", "Kassör", "Tryck", "BokningsWerk", "Nollegrupp & Fadderkul", "Mat & Sittning", "Webb & Info"];
+const DGROUP = ["Chief", "Ca$h", "Öl & Bar", "Webb & ÖD", "Werk", "Biljett & U-Lag", "Pr & Event", "Spons", "J^8", "Trykk", "Mat & Sittning", "Pr & Personal"];
+const DONNA = ["PrimaDonna", "Kassör", "Spons", "PR & Info", "Mat & Sittning", "Gückel & Aktivitet", "Dekor & Intendent", "Bokning & Event", "Webb & Tryck"];
+const STYRET = ["Ordförande", "Kassör", "Vice Ordförande", "Sekreterare", "UtbO", "Aktivitetshanterare", "AMO", "Ledamot"];
+
 app.controller('MenuCtrl', function($scope, $rootScope, $http) {
     $scope.model = {};
     $scope.loadedProfiles = [];
@@ -300,8 +305,7 @@ app.controller('DkCtrl', function($scope, $http, $interval, $timeout, ngAudio, $
     }
 
     function setup() {
-        populateLists();
-        populateSTABEN();
+        populate(STABEN);
     }
 
     $scope.$on('load-profile', function(event, profile) {
@@ -326,17 +330,28 @@ app.controller('DkCtrl', function($scope, $http, $interval, $timeout, ngAudio, $
         $scope.sound.stop();
 
         if (data == 'staben') {
-            populateSTABEN();
+			populate(STABEN);
         } else if (data == 'dgroup') {
-            populateDGROUP();
+			populate(DGROUP);
         } else if (data == 'donna') {
-            populateDonna();
+			populate(DONNA);
         } else if (data == 'styret') {
-            populateStyret();
+			populate(STYRET);
         } else if (data == 'mahaad') {
 			populateMahaad();
 		}
     });
+
+	function populate(playerNames) {
+		$scope.players = [];
+		populateLists();
+
+		playerNames.forEach(function (item, index) {
+			$scope.players.push({
+				'name': item
+			})
+		});
+	}
 
     function populateMahaad() {
         $scope.players = [];
@@ -374,146 +389,6 @@ app.controller('DkCtrl', function($scope, $http, $interval, $timeout, ngAudio, $
             index: -1
         });
 	}
-
-    function populateSTABEN() {
-		populateLists();
-        $scope.players = [];
-        $scope.players.push({
-            'name': "General"
-        });
-        $scope.players.push({
-            'name': "BarWerk"
-        });
-        $scope.players.push({
-            'name': "Fadderansvarig"
-        });
-        $scope.players.push({
-            'name': "Spons"
-        });
-        $scope.players.push({
-            'name': "Karaktär"
-        });
-        $scope.players.push({
-            'name': "Kassör"
-        });
-        $scope.players.push({
-            'name': "Tryck"
-        });
-        $scope.players.push({
-            'name': "BokningsWerk"
-        });
-        $scope.players.push({
-            'name': "Nollegrupp & Fadderkul"
-        });
-        $scope.players.push({
-            'name': "Mat & Sittning"
-        });
-        $scope.players.push({
-            'name': "Webb & Info"
-        });
-    }
-
-    function populateDGROUP() {
-		populateLists();
-        $scope.players = [];
-        $scope.players.push({
-            'name': "Chief"
-        });
-        $scope.players.push({
-            'name': "Ca$h"
-        });
-        $scope.players.push({
-            'name': "Öl & Bar"
-        });
-        $scope.players.push({
-            'name': "Webb & ÖD"
-        });
-        $scope.players.push({
-            'name': "Werk"
-        });
-        $scope.players.push({
-            'name': "Biljett & U-Lag"
-        });
-        $scope.players.push({
-            'name': "Pr & Event"
-        });
-        $scope.players.push({
-            'name': "Spons"
-        });
-        $scope.players.push({
-            'name': "J^8"
-        });
-        $scope.players.push({
-            'name': "Trykk"
-        });
-        $scope.players.push({
-            'name': "Mat & Sittning"
-        });
-        $scope.players.push({
-            'name': "Pr & Personal"
-        });
-    }
-
-    function populateDonna() {
-		populateLists();
-        $scope.players = [];
-        $scope.players.push({
-            'name': "PrimaDonna"
-        });
-        $scope.players.push({
-            'name': "Kassör"
-        });
-        $scope.players.push({
-            'name': "Spons"
-        });
-        $scope.players.push({
-            'name': "PR & Info"
-        });
-        $scope.players.push({
-            'name': "Mat & Sittning"
-        });
-        $scope.players.push({
-            'name': "Gückel & Aktivitet"
-        });
-        $scope.players.push({
-            'name': "Dekor & Intendent"
-        });
-        $scope.players.push({
-            'name': "Bokning & Event"
-        });
-        $scope.players.push({
-            'name': "Webb & Tryck"
-        });
-    }
-
-    function populateStyret() {
-		populateLists();
-        $scope.players = [];
-        $scope.players.push({
-            'name': "Ordförande"
-        });
-        $scope.players.push({
-            'name': "Kassör"
-        });
-        $scope.players.push({
-            'name': "Vice Ordförande"
-        });
-        $scope.players.push({
-            'name': "Sekreterare"
-        });
-        $scope.players.push({
-            'name': "UtbO"
-        });
-        $scope.players.push({
-            'name': "Aktivitetshanterare"
-        });
-        $scope.players.push({
-            'name': "AMO"
-        });
-        $scope.players.push({
-            'name': "Ledamot"
-        });
-    }
 
     function populateLists() {
 		$scope.lists = [];
