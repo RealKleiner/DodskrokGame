@@ -324,7 +324,6 @@ app.controller('DkCtrl', function($scope, $http, $interval, $timeout, ngAudio, $
         $scope.playing = false;
         $scope.round = 0;
         $scope.sound.stop();
-		populateLists();
 
         if (data == 'staben') {
             populateSTABEN();
@@ -377,6 +376,7 @@ app.controller('DkCtrl', function($scope, $http, $interval, $timeout, ngAudio, $
 	}
 
     function populateSTABEN() {
+		populateLists();
         $scope.players = [];
         $scope.players.push({
             'name': "General"
@@ -414,6 +414,7 @@ app.controller('DkCtrl', function($scope, $http, $interval, $timeout, ngAudio, $
     }
 
     function populateDGROUP() {
+		populateLists();
         $scope.players = [];
         $scope.players.push({
             'name': "Chief"
@@ -454,6 +455,7 @@ app.controller('DkCtrl', function($scope, $http, $interval, $timeout, ngAudio, $
     }
 
     function populateDonna() {
+		populateLists();
         $scope.players = [];
         $scope.players.push({
             'name': "PrimaDonna"
@@ -485,6 +487,7 @@ app.controller('DkCtrl', function($scope, $http, $interval, $timeout, ngAudio, $
     }
 
     function populateStyret() {
+		populateLists();
         $scope.players = [];
         $scope.players.push({
             'name': "Ordförande"
@@ -513,6 +516,7 @@ app.controller('DkCtrl', function($scope, $http, $interval, $timeout, ngAudio, $
     }
 
     function populateLists() {
+		$scope.lists = [];
         $scope.lists.push({
             'title': "Ta 5 klunkar",
             index: -1
