@@ -7,14 +7,16 @@ var app = express();
 
 //CHANGE VARS
 
+var mongooseName = process.env.MONGOUSER || "db";
 var mongoosePass = process.env.MONGOPASS || "pass";
-var mongooseName = process.env.MONGODB || "db";
+var mongooseHost = process.env.MONGOHOST || "localhost";
+var mongoosePort = process.env.MONGOPORT || "35975";
+var mongouri = process.env.MONGOURI || "mongodb://" + mongooseName + ":" + mongoosePass + "@" + mongooseHost + ":" + mongoosePort + "/dodskrok";
 var defaultPORT = 3000;
 
 /**
  * Connect to MongoDB.
  */
-var mongouri = "mongodb://" + mongooseName + ":" + mongoosePass + "@ds035975.mongolab.com:35975/dodskrok";
 mongoose.connect(mongouri);
 mongoose.connection.on('error', function() {
     console.log('MongoDB Connection Error. Please make sure that MongoDB is running.');
